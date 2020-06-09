@@ -74,9 +74,9 @@ window.onload = () => {
 
                 canvas.getContext('2d').putImageData(imageData, 0, 0, 0, 0, canvas.width, canvas.height);
 
-                for (let i = 0, len = imageData.data.length; i < len; i = i + 4) {
-                  console.log(imageData.data[i], imageData.data[i + 1], imageData.data[i + 2], imageData.data[i + 3])
-                }
+                // for (let i = 0, len = imageData.data.length; i < len; i = i + 4) {
+                //   console.log(imageData.data[i], imageData.data[i + 1], imageData.data[i + 2], imageData.data[i + 3])
+                // }
               } catch (e) {
                 handleError(e)
               }

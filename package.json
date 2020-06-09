@@ -1,6 +1,6 @@
 {
   "name": "firesale",
-  "version": "1.0.0-alpha",
+  "version": "1.0.1-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
@@ -13,6 +13,7 @@
     "marked": "^0.3.6"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "devtron": "^1.4.0",
     "electron": "^9.0.3",
     "electron-builder": "^22.7.0",
@@ -20,8 +21,7 @@
     "eslint": "^3.10.0"
   },
   "scripts": {
-    "start": "env-cmd electron .",
-    "postinstall": "cd node_modules && rm -rf electron && ln -s electron-nightly electron",
+    "start": "env-cmd cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules\\electron-nightly\\dist\" electron .",
     "build": "env-cmd electron-builder build -w --publish never",
     "publish": "env-cmd electron-builder --publish always"
   },
