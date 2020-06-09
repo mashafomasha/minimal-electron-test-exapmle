@@ -4,6 +4,7 @@
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
+    "convict": "^6.0.0",
     "dotenv": "^8.2.0",
     "electron-log": "^4.2.1",
     "electron-packager": "^14.2.1",
@@ -18,12 +19,16 @@
     "electron": "^9.0.3",
     "electron-builder": "^22.7.0",
     "electron-nightly": "11.0.0-nightly.20200529",
-    "eslint": "^3.10.0"
+    "eslint": "^3.10.0",
+    "express": "^4.17.1"
   },
   "scripts": {
-    "start": "env-cmd cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules\\electron-nightly\\dist\" electron .",
-    "build": "env-cmd electron-builder build -w --publish never",
-    "publish": "env-cmd electron-builder --publish always"
+    "start:dev": "cross-env NODE_ENV=development && yarn start && yarn start:static",
+    "start:prod": "cross-env NODE_ENV=production && yarn start",
+    "start:static": "node \"./server\"",
+    "start": "env-cmd cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules/electron-nightly/dist\" electron .",
+    "builder:build": "env-cmd electron-builder build -w --publish never",
+    "builder:publish": "env-cmd electron-builder --publish always"
   },
   "repository": {
     "type": "git",

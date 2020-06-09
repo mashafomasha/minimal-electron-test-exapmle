@@ -10,8 +10,6 @@ autoUpdater.channel = 'alpha';
 let mainWindow = null;
 let offscreenWindow = null;
 
-console.log(process.env);
-
 app.on('ready', () => {
   mainWindow = new BrowserWindow({ show: false, webPreferences: { nodeIntegration: true, contextIsolation: false } });
   offscreenWindow = new BrowserWindow({ show: false, webPreferences: { nodeIntegration: true, contextIsolation: false } });
