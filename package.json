@@ -1,33 +1,59 @@
 {
   "name": "firesale",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
-    "electron": "^9.0.3",
-    "electron-nightly": "11.0.0-nightly.20200529",
+    "dotenv": "^8.2.0",
+    "electron-log": "^4.2.1",
+    "electron-packager": "^14.2.1",
+    "electron-updater": "^4.3.1",
+    "env-cmd": "^10.1.0",
     "jquery": "^3.1.1",
     "marked": "^0.3.6"
   },
   "devDependencies": {
     "devtron": "^1.4.0",
-    "electron-packager": "^8.2.0",
+    "electron": "^9.0.3",
+    "electron-builder": "^22.7.0",
+    "electron-nightly": "11.0.0-nightly.20200529",
     "eslint": "^3.10.0"
   },
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd node_modules && rm -rf electron && ln -s electron-nightly electron"
+    "start": "env-cmd electron .",
+    "postinstall": "cd node_modules && rm -rf electron && ln -s electron-nightly electron",
+    "build": "env-cmd electron-builder build -w --publish never",
+    "publish": "env-cmd electron-builder --publish always"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevekinney/firesale-fem.git"
+    "url": "git+https://github.com/mashafomasha/minimal-electron-test-exapmle.git"
   },
   "keywords": [],
   "author": "Steve Kinney <hello@stevekinney.net> (http://stevekinney.net)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/stevekinney/firesale-fem/issues"
-  },
-  "homepage": "https://github.com/stevekinney/firesale-fem#readme"
+  "build": {
+    "appId": "com.fomasha.minimal.electron.example",
+    "productName": "minimal electron example",
+    "generateUpdatesFilesForAllChannels": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "app",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "electronDist": "./node_modules/electron-nightly/dist",
+    "publish": {
+      "provider": "github",
+      "owner": "mashafomasha",
+      "repo": "minimal-electron-test-exapmle"
+    }
+  }
 }
