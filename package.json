@@ -4,18 +4,20 @@
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
+    "electron": "^9.0.3",
+    "electron-nightly": "11.0.0-nightly.20200529",
     "jquery": "^3.1.1",
     "marked": "^0.3.6"
   },
   "devDependencies": {
     "devtron": "^1.4.0",
-    "electron": "^1.4.6",
     "electron-packager": "^8.2.0",
     "eslint": "^3.10.0"
   },
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd node_modules && rm -rf electron && ln -s electron-nightly electron"
   },
   "repository": {
     "type": "git",

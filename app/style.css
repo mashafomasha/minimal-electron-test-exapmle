@@ -18,15 +18,6 @@ body {
   position: absolute;
 }
 
-body, input {
-  font: menu;
-}
-
-textarea, input, div, button {
-  margin: 0;
-  outline: none;
-}
-
 .controls {
   background-color: rgb(217, 241, 238);
   padding: 10px 10px 10px 10px;
@@ -59,32 +50,7 @@ button:disabled {
   position: relative;
 }
 
-.content {
-  height: 100vh;
-  display: flex; /* E */
-}
-
-.raw-markdown, .rendered-html {
-  min-height: 100%;
-  max-width: 50%;
-  flex-grow: 1; /* F */
-  padding: 1em;
-  overflow: scroll;
-  font-size: 16px;
-}
-
-.raw-markdown {
-  border: 5px solid rgb(238, 252, 250);;
-  background-color: rgb(238, 252, 250);
-  font-family: monospace;
-}
-
-.raw-markdown.drag-over {
-  background-color: rgb(181, 220, 216);
-  border-color: rgb(75, 160, 151);
-}
-
-.raw-markdown.drag-error {
-  background-color: rgba(170, 57, 57,1);
-  border-color: rgba(255,170,170,1);
+video {
+  width: 50%;
+  height: 50%;
 }
