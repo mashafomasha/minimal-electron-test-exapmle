@@ -19,7 +19,7 @@
     "electron": "^9.0.3",
     "electron-builder": "^22.7.0",
     "electron-nightly": "11.0.0-nightly.20200529",
-    "eslint": "^3.10.0",
+    "eslint": "^4.18.2",
     "express": "^4.17.1"
   },
   "scripts": {
