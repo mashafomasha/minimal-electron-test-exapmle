@@ -1,4 +1,6 @@
 const { ipcRenderer, desktopCapturer } = require('electron');
+const path = require('path');
+const version = require(path.join(__dirname, '..', 'package.json')).version;
 
 const handleStream = (stream) => {
     const video = document.querySelector('#video');
@@ -12,10 +14,13 @@ const handleStream = (stream) => {
 };
 
 const handleError = (error) => {
-  debugger
+  console.error(error);
 };
 
 window.onload = () => {
+    console.log('welcome to version: ', version);
+    console.log(process.env);
+
     const button = document.querySelector('#button');
     button.addEventListener('click', () => {
         ipcRenderer.send('capture');
@@ -81,5 +86,16 @@ window.onload = () => {
                 handleError(e)
               }
         });
+    });
+
+    ipcRenderer.on('update-downloaded', () => {
+      const updateButton = document.querySelector('#update');
+
+      updateButton.addEventListener('click', () => {
+        ipcRenderer.send('install-update');
+
+        updateButton.addAttribute('disabled', '');
+      });
+      updateButton.removeAttribute('disabled');
     });
 };

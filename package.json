@@ -1,6 +1,6 @@
 {
   "name": "firesale",
-  "version": "1.0.1-alpha",
+  "version": "1.0.2-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
@@ -23,12 +23,14 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development && yarn start && yarn start:static",
-    "start:prod": "cross-env NODE_ENV=production && yarn start",
-    "start:static": "node \"./server\"",
-    "start": "env-cmd cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules/electron-nightly/dist\" electron .",
-    "builder:build": "env-cmd electron-builder build -w --publish never",
-    "builder:publish": "env-cmd electron-builder --publish always"
+    "start": "cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules/electron-nightly/dist\" electron .",
+    "start:dev": "env-cmd -e development yarn start",
+    "start:prod": "env-cmd -e production yarn start",
+    "start:static": "env-cmd -e development node \"./server\"",
+    "build": "electron-builder build -w --publish never",
+    "build:dev": "env-cmd -e development yarn build",
+    "build:prod": "env-cmd -e production yarn build",
+    "publish:dev": "yarn build:dev && yarn start:static"
   },
   "repository": {
     "type": "git",
@@ -56,9 +58,8 @@
     },
     "electronDist": "./node_modules/electron-nightly/dist",
     "publish": {
-      "provider": "github",
-      "owner": "mashafomasha",
-      "repo": "minimal-electron-test-exapmle"
+      "provider": "generic",
+      "url": "${env.PUBLISH_PROTOCOL}://${env.PUBLISH_HOST}:${env.PUBLISH_PORT}/${env.PUBLISH_PATH}/"
     }
   }
 }

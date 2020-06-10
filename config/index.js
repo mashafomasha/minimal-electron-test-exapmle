@@ -9,20 +9,23 @@ const config = convict({
     env: 'NODE_ENV',
   },
   publish: {
-      host: {
-        doc: 'electron-builder publish host',
-        format: String,
-      },
       port: {
         doc: 'electron-builder publish port',
         format: 'port',
         default: 8080,
         env: 'PUBLISH_PORT',
       },
+      path: {
+        doc: 'electron-builder publish path',
+        format: String,
+        default: '/',
+        env: 'PUBLISH_PATH',
+      },
   },
 });
 
-const env = config.get('env');
-config.loadFile(path.join(__dirname, `${env}.json`));
+// TODO: uncomment this lines and add files with custom configuration for each env value
+// const env = config.get('env');
+// config.loadFile(path.join(__dirname, `${env}.json`));
 
 module.exports = config;
