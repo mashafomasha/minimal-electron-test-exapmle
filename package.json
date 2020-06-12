@@ -43,7 +43,7 @@
   "license": "ISC",
   "build": {
     "appId": "com.fomasha.minimal.electron.example",
-    "productName": "minimal electron example",
+    "productName": "fomashaElectronExample",
     "generateUpdatesFilesForAllChannels": true,
     "directories": {
       "output": "release"
