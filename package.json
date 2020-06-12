@@ -54,8 +54,7 @@
     ],
     "win": {
       "target": [
-        "nsis",
-        "msi"
+        "nsis"
       ]
     },
     "publish": {
