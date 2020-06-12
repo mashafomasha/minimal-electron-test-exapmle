@@ -4,9 +4,6 @@ const path = require('path');
 let mainWindow = null;
 let offscreenWindow = null;
 
-// TODO: create build script with programmatic API
-// TODO: create context menu item and show update dialo
-
 if (process.env.NODE_ENV !== 'development') {
   require('./updater.js');
 }

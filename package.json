@@ -1,6 +1,6 @@
 {
   "name": "firesale",
-  "version": "1.0.2-alpha",
+  "version": "0.0.1-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
@@ -30,7 +30,8 @@
     "build": "electron-builder build -w --publish never",
     "build:dev": "env-cmd -e development yarn build",
     "build:prod": "env-cmd -e production yarn build",
-    "publish:dev": "yarn build:dev && yarn start:static"
+    "publish:dev": "yarn build:dev && yarn start:static",
+    "release": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -58,8 +59,9 @@
     },
     "electronDist": "./node_modules/electron-nightly/dist",
     "publish": {
-      "provider": "generic",
-      "url": "${env.PUBLISH_PROTOCOL}://${env.PUBLISH_HOST}:${env.PUBLISH_PORT}/${env.PUBLISH_PATH}/"
+      "provider": "github",
+      "owner": "mashafomasha",
+      "repo": "minimal-electron-test-exapmle"
     }
   }
 }
