@@ -31,7 +31,8 @@
     "build:dev": "env-cmd -e development yarn build",
     "build:prod": "env-cmd -e production yarn build",
     "publish:dev": "yarn build:dev && yarn start:static",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "test": "echo \"TEST\""
   },
   "repository": {
     "type": "git",
