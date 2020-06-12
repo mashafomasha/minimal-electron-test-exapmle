@@ -23,7 +23,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules/electron-nightly/dist\" electron .",
+    "start": "cross-env electron .",
     "start:dev": "env-cmd -e development yarn start",
     "start:prod": "env-cmd -e production yarn start",
     "start:static": "env-cmd -e development node \"./server\"",
@@ -58,7 +58,6 @@
         "msi"
       ]
     },
-    "electronDist": "./node_modules/electron-nightly/dist",
     "publish": {
       "provider": "github",
       "owner": "mashafomasha",
