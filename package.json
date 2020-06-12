@@ -1,6 +1,6 @@
 {
   "name": "firesale",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
