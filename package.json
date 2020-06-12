@@ -1,6 +1,6 @@
 {
   "name": "firesale",
-  "version": "0.0.2-alpha",
+  "version": "0.0.4-alpha",
   "description": "A Markdown-to-HTML editor built on Electron and used to teach how to build applications in Electron.",
   "main": "app/main.js",
   "dependencies": {
@@ -23,7 +23,7 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "start": "cross-env ELECTRON_OVERRIDE_DIST_PATH=\"node_modules/electron-nightly/dist\" electron .",
+    "start": "cross-env electron .",
     "start:dev": "env-cmd -e development yarn start",
     "start:prod": "env-cmd -e production yarn start",
     "start:static": "env-cmd -e development node \"./server\"",
@@ -31,7 +31,8 @@
     "build:dev": "env-cmd -e development yarn build",
     "build:prod": "env-cmd -e production yarn build",
     "publish:dev": "yarn build:dev && yarn start:static",
-    "release": "electron-builder"
+    "release": "electron-builder",
+    "test": "echo \"TEST\""
   },
   "repository": {
     "type": "git",
@@ -42,7 +43,7 @@
   "license": "ISC",
   "build": {
     "appId": "com.fomasha.minimal.electron.example",
-    "productName": "minimal electron example",
+    "productName": "fomashaElectronExample",
     "generateUpdatesFilesForAllChannels": true,
     "directories": {
       "output": "release"
@@ -53,11 +54,9 @@
     ],
     "win": {
       "target": [
-        "nsis",
-        "msi"
+        "nsis"
       ]
     },
-    "electronDist": "./node_modules/electron-nightly/dist",
     "publish": {
       "provider": "github",
       "owner": "mashafomasha",
